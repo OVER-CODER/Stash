@@ -4,9 +4,9 @@
 
 import { AppShell, Burger, ColorSchemeScript, Group, MantineProvider, Skeleton } from '@mantine/core';
 import '@mantine/core/styles.css';
+import './globals.css'
 import { useDisclosure } from '@mantine/hooks';
-import { NavbarSearch } from './Components/Navbarsearch';
-
+import { NavbarSearch } from './Components/NavbarSearch';
 // export const metadata = {
 //   title: 'My Mantine app',
 //   description: 'I have followed setup instructions carefully',
