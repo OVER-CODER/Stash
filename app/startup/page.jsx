@@ -1,16 +1,26 @@
-import { Group } from "@mantine/core"
+"use client"
+import { Grid, Group } from "@mantine/core"
 import { StartupCard } from "./components/StartupCard"
 
 export default function Startup(){
     return  <div>
-       <Group w={"100%"} style={{overflow:"scroll", scrollbarWidth:"none"} } mb={20}>
-      <StartupCard />
-      <StartupCard />
-      <StartupCard/>
-      <StartupCard /> 
-      <StartupCard />      
-      <StartupCard />          
+      <h1 >Select a Single Session to open on Startup</h1>
 
-    </Group>
+      <Grid>
+      <Grid.Col span={4}><StartupCard /></Grid.Col>
+      <Grid.Col span={4}><StartupCard /></Grid.Col>
+      <Grid.Col span={4}><StartupCard /></Grid.Col>
+      <Grid.Col span={4}><StartupCard /></Grid.Col>
+      <Grid.Col span={4}><StartupCard /></Grid.Col>
+      <Grid.Col span={4}><StartupCard /></Grid.Col>
+      
+
+
+            
+
+      </Grid>
+       
+     
+  
     </div>
 }
