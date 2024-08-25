@@ -1,7 +1,8 @@
 'use client'
-import { Avatar, Badge, Table, Group, Text, Select , Button ,Checkbox  } from '@mantine/core';
+import { Avatar, Badge, Table, Group, Text, Select, Button, Checkbox } from '@mantine/core';
 import { useState } from 'react';
 import classes from './Checkbox.module.css';
+
 const data = [
   {
     avatar:
@@ -59,22 +60,18 @@ const data = [
   },
 ];
 
-const rolesData = ['Window 1 ', 'Window 2 ', 'Window 3 ' , 'Window 4'];
+const rolesData = ['Window 1', 'Window 2', 'Window 3', 'Window 4'];
 
 export function Roles() {
-    const [checked, setChecked] = useState(false);
-    // const [checked, setChecked] = useState(
-    //     data.reduce((acc, item) => {
-    //       acc[item.id] = false;
-    //       return acc;
-    //     }, {})
-    //   );
-    //   const handleCheckboxChange = (id) => {
-    //     setChecked((prev) => ({
-    //       ...prev,
-    //       [id]: !prev[id],
-    //     }));
-    //   };
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const handleChange = (itemId) => {
+    setCheckedItems((prevCheckedItems) => ({
+      ...prevCheckedItems,
+      [itemId]: !prevCheckedItems[itemId],
+    }));
+  };
+
   const rows = data.map((item) => (
     <Table.Tr key={item.id}>
       <Table.Td>
@@ -91,33 +88,25 @@ export function Roles() {
         </Group>
       </Table.Td>
       <Table.Td>{item.job}</Table.Td>
-
+      <Table.Td>{item.lastActive}</Table.Td>
+      <Table.Td>{rolesData}</Table.Td>
       <Table.Td>
-        {item.lastActive}
-      </Table.Td>
-      <Table.Td>
-      {rolesData}
-      </Table.Td>
-      <Table.Td>
-        <Group justify='center'>
-        <Checkbox
-      flex={1} 
-      classNames={classes}
-      label= {checked ? 'Enabled' : 'Disabled'}
-      checked={checked}
-      onChange={(event) => setChecked(event.currentTarget.checked)}
-      wrapperProps={{
-        onClick: () => setChecked((c) => !c),
-      }}
-    />
-        <Button variant="filled" radius="md" flex={1}>Edit</Button>
+        <Group justify="center">
+          <Checkbox
+            flex={1}
+            classNames={classes}
+            label={checkedItems[item.id] ? 'Enabled' : 'Disabled'}
+            checked={!!checkedItems[item.id]}
+            onChange={() => handleChange(item.id)}
+          />
+          <Button variant="filled" radius="md" flex={1}>Edit</Button>
         </Group>
       </Table.Td>
     </Table.Tr>
   ));
 
   return (
-    <Table.ScrollContainer minWidth={800}> 
+    <Table.ScrollContainer minWidth={800}>
       <Table verticalSpacing="sm">
         <Table.Thead>
           <Table.Tr>
