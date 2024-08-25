@@ -39,7 +39,10 @@ export function SessionCard() {
             </Modal.Title>
             <Modal.CloseButton />
           </Modal.Header>
-          <Modal.Body bg={"#080819"}>{<SessionSelection/>}</Modal.Body>
+          <Modal.Body bg={"#080819"}>
+            {<SessionSelection wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} }/>}
+            <Button radius="md" mt="xl" size="mg" variant='light' onClick={close}>Save Config</Button>
+            </Modal.Body>
         </Modal.Content>
       </Modal.Root>
     <Card withBorder padding="xl" radius="md" w={360} mt={8}  flex className={classes.card}>
