@@ -13,7 +13,7 @@ const mockdata = {
     { emoji: '☀️', label: 'VS Code' },
     { emoji: '🦓', label: 'MS Teams' },
     { emoji: '🌊', label: 'WhatsApp' },
-    // { emoji: '🌲', label: 'Firefox' },
+    { emoji: '🌲', label: 'Firefox' },
     // { emoji: '🤽', label: 'Water sports' },
   ],
 };
@@ -27,7 +27,7 @@ export function SessionCard() {
   ));
 
   return (
-    <Card withBorder radius="md" p="md" className={classes.card} flex={1}>
+    <Card withBorder radius="md" p="md" mb={20} miw={300} className={classes.card} flex={1}>
       <Card.Section>
         <Image src={image} alt={title} height={180} />
       </Card.Section>

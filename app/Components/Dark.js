@@ -11,6 +11,7 @@ export function Dark() {
     <ActionIcon
       onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
       variant="default"
+      bg={"transparent"}
       size="xl"
       aria-label="Toggle color scheme"
     >
