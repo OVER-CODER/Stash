@@ -24,7 +24,7 @@ export default function Home() {
     <Group gap={0} align="baseline" my={"md"}>
       <Text fz={24} fw={600}>Recent Sessions</Text>
     </Group>
-    <Group w={"100%"} wrap="nowrap" style={{overflow:"scroll"}} mb={20}>
+    <Group w={"100%"} wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} } mb={20}>
       <SessionCard />
       <SessionCard />
       <SessionCard />
