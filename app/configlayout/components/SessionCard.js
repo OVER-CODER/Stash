@@ -26,14 +26,14 @@ export function SessionCard() {
 
   return (
     <>
-    <Modal.Root opened={opened} onClose={close} fullScreen bg={'black'}>
+    <Modal.Root opened={opened} onClose={close} size={'2xl'} style={{overflow : 'hidden'}}>
         <Modal.Overlay />
         <Modal.Content>
           <Modal.Header>
             <Modal.Title>Create Session</Modal.Title>
             <Modal.CloseButton />
           </Modal.Header>
-          <Modal.Body>{<SessionSelection/>}</Modal.Body>
+          <Modal.Body bg={"#080819"}>{<SessionSelection/>}</Modal.Body>
         </Modal.Content>
       </Modal.Root>
     <Card withBorder padding="xl" radius="md" w={360} mt={8}  flex className={classes.card}>
