@@ -5,7 +5,7 @@
   "scripts": {
     "dev-reqs": "pip3 install -r requirements.txt",
     "dev": "next dev",
-    "build:python": "pyinstaller -c -F --clean --name main-x86_64-pc-windows-msvc --distpath src-tauri/bin/api src/backends/main.py",
+    "build:python": "pyinstaller --onefile -c -F --clean --name main-x86_64-pc-windows-msvc --distpath src-tauri/bin/api src/backends/main.py",
     "build": "npm run build:python && next build",
     "tauri": "tauri",
     "export": "next export",
