@@ -12,7 +12,7 @@ const data = [
     role: 'Collaborator',
     lastActive: '2 days ago',
     active: true,
-  },
+    id: 1,  },
   {
     avatar:
       'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-6.png',
@@ -22,6 +22,7 @@ const data = [
     role: 'Collaborator',
     lastActive: '6 days ago',
     active: true,
+    id: 2,
   },
   {
     avatar:
@@ -32,6 +33,7 @@ const data = [
     role: 'Contractor',
     lastActive: '2 days ago',
     active: false,
+    id: 3,
   },
   {
     avatar:
@@ -42,6 +44,7 @@ const data = [
     role: 'Contractor',
     lastActive: '5 days ago',
     active: true,
+    id: 4,
   },
   {
     avatar:
@@ -52,6 +55,7 @@ const data = [
     role: 'Manager',
     lastActive: '3 days ago',
     active: false,
+    id: 5,
   },
 ];
 
@@ -59,8 +63,20 @@ const rolesData = ['Window 1 ', 'Window 2 ', 'Window 3 ' , 'Window 4'];
 
 export function Roles() {
     const [checked, setChecked] = useState(false);
+    // const [checked, setChecked] = useState(
+    //     data.reduce((acc, item) => {
+    //       acc[item.id] = false;
+    //       return acc;
+    //     }, {})
+    //   );
+    //   const handleCheckboxChange = (id) => {
+    //     setChecked((prev) => ({
+    //       ...prev,
+    //       [id]: !prev[id],
+    //     }));
+    //   };
   const rows = data.map((item) => (
-    <Table.Tr key={item.name}>
+    <Table.Tr key={item.id}>
       <Table.Td>
         <Group gap="sm">
           <Avatar size={40} src={item.avatar} radius={40} />
@@ -83,17 +99,19 @@ export function Roles() {
       {rolesData}
       </Table.Td>
       <Table.Td>
-         <Checkbox
+        <Group justify='center'>
+        <Checkbox
+      flex={1} 
       classNames={classes}
-      label="Checkbox button"
+      label="Select Session"
       checked={checked}
       onChange={(event) => setChecked(event.currentTarget.checked)}
       wrapperProps={{
         onClick: () => setChecked((c) => !c),
       }}
-    /> 
-        <Button variant="filled" radius="md" mt={10}>Edit</Button>
-        
+    />
+        <Button variant="filled" radius="md" flex={1}>Edit</Button>
+        </Group>
       </Table.Td>
     </Table.Tr>
   ));
