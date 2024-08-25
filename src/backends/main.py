@@ -4,8 +4,8 @@ import getpass
 from flask_cors import CORS
 from PIL import ImageGrab
 import io
-from scripts import get_windows
-
+from scripts.getwindows import get_window_list
+from scripts.restorewin import restore_windows_to_original_state
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -38,9 +38,15 @@ def screenshot():
 
 @app.route("/getwindows")
 def getwindows():
-    x = get_windows()
+    x = get_window_list()
     print(x)
     return x
+
+
+@app.route("/restore")
+def restorewindows():
+    restore_windows_to_original_state()
+    return "Restored"
 
 
 app.run(host="localhost", port=6969, debug=True)

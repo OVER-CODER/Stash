@@ -53,3 +53,13 @@ def get_window_list():
             print(f"Executable Path: {details['exe_path']}")
             print(f"Position: ({details['x']}, {details['y']})")
             print(f"Size: {details['width']}x{details['height']}\n")
+            windows.append(
+                [
+                    details["exe_path"],
+                    details["x"],
+                    details["y"],
+                    details["width"],
+                    details["height"],
+                ]
+            )
+    return windows
