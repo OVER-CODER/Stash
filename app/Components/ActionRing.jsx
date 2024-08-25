@@ -1,13 +1,14 @@
 import { RingProgress, Text, SimpleGrid, Paper, Center, Group, rem } from '@mantine/core';
-import { IconArrowUpRight, IconArrowDownRight } from '@tabler/icons-react';
+import { IconArrowUpRight, IconArrowDownRight, IconClock, IconHourglassHigh, IconHourglass, IconHourglassLow, IconHourglassEmpty } from '@tabler/icons-react';
 
 const icons = {
   up: IconArrowUpRight,
   down: IconArrowDownRight,
+  time: IconHourglassEmpty,
 };
 
 const data = [
-  { label: 'Page views', stats: '456,578', progress: 65, color: 'teal', icon: 'up' },
+  { label: 'Next Cron Job', stats: '3 hr 15 min', progress: 65, color: 'teal', icon: 'time' },
   { label: 'New users', stats: '2,550', progress: 72, color: 'blue', icon: 'up' },
   {
     label: 'Orders',
