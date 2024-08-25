@@ -1,6 +1,8 @@
 'use client'
-import { Card, Avatar, Text, Group, Button , Badge, Center} from '@mantine/core';
+import { Card, Avatar, Text, Group, Button , Badge, Center , Modal} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import classes from './SessionCard.module.css';
+import SessionSelection from './SessionSelection';
 
 
 const stats = [
@@ -20,8 +22,20 @@ export function SessionCard() {
       </Text>
     </div>
   ));
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
+    <>
+    <Modal.Root opened={opened} onClose={close} fullScreen bg={'black'}>
+        <Modal.Overlay />
+        <Modal.Content>
+          <Modal.Header>
+            <Modal.Title>Create Session</Modal.Title>
+            <Modal.CloseButton />
+          </Modal.Header>
+          <Modal.Body>{<SessionSelection/>}</Modal.Body>
+        </Modal.Content>
+      </Modal.Root>
     <Card withBorder padding="xl" radius="md" w={360} mt={8}  flex className={classes.card}>
       <Card.Section
         h={140}
@@ -49,10 +63,11 @@ export function SessionCard() {
       <Group mt="lg" justify="center" gap={30}>
         {items}
       </Group>
-      <Button  radius="md" mt="xl" size="mg" variant='light' >
+      <Button  radius="md" mt="xl" size="mg" variant='light' onClick={open} >
         Edit Session
       </Button>
     </Card>
+    </>
     
   );
 }
