@@ -6,6 +6,8 @@ from PIL import ImageGrab
 import io
 from scripts.getwindows import get_window_list
 from scripts.restorewin import restore_windows_to_original_state
+from scripts.dumpconfig import dump_config, read_config
+
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -43,9 +45,18 @@ def getwindows():
     return x
 
 
-@app.route("/restore")
-def restorewindows():
-    restore_windows_to_original_state()
+@app.route("/dumplayout/<name>/<lastActive>")
+def dumpscreen(name, lastActive):
+    data = get_window_list()
+    dump_config(data, name, lastActive)
+    return "Dumped"
+
+
+@app.route("/restore/<name>")
+def restorewindows(name):
+    data = read_config(name)
+    # print(data["details"])
+    restore_windows_to_original_state(data["details"])
     return "Restored"
 
 

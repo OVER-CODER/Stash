@@ -32,8 +32,7 @@ def start_and_position_window(exe, pos):
         win32gui.MoveWindow(hwnd, pos[0], pos[1], pos[2], pos[3], True)
 
 
-def restore_windows_to_original_state():
-    windows = [["C:\Windows\System32\Taskmgr.exe", "145 125 780 590"]]
+def restore_windows_to_original_state(windows):
 
     for exe, pos in windows:
         start_and_position_window(exe, pos)
