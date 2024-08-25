@@ -77,25 +77,12 @@ export function Roles() {
       <Table.Td>{item.job}</Table.Td>
 
       <Table.Td>
-        {/* <Select
-          data={rolesData}
-          defaultValue={item.role}
-          variant="unstyled"
-          allowDeselect={false}
-        /> */}
-        {rolesData}
+        {item.lastActive}
       </Table.Td>
-      <Table.Td>{item.lastActive}</Table.Td>
       <Table.Td>
-        {/* {item.active ? (
-          <Badge fullWidth variant="light">
-            Active
-          </Badge>
-        ) : (
-          <Badge color="gray" fullWidth variant="light">
-            Disabled
-          </Badge>
-        )} */}
+      {rolesData}
+      </Table.Td>
+      <Table.Td>
          <Checkbox
       classNames={classes}
       label="Checkbox button"
@@ -105,7 +92,7 @@ export function Roles() {
         onClick: () => setChecked((c) => !c),
       }}
     /> 
-        <Button variant="filled" radius="md">Edit</Button>
+        <Button variant="filled" radius="md" mt={10}>Edit</Button>
         
       </Table.Td>
     </Table.Tr>
@@ -118,8 +105,8 @@ export function Roles() {
           <Table.Tr>
             <Table.Th>Session Name</Table.Th>
             <Table.Th>Open Window</Table.Th>
-            <Table.Th>Windows Selected</Table.Th>
             <Table.Th>Last active</Table.Th>
+            <Table.Th>Windows Selected</Table.Th>
             <Table.Th>Status</Table.Th>
           </Table.Tr>
         </Table.Thead>
