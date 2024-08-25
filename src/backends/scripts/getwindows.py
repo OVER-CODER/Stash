@@ -43,8 +43,12 @@ blacklist_title = ["Program Manager"]
 def get_window_list():
     windows = []
     win32gui.EnumWindows(enum_windows_callback, windows)
+    res = []
     for hwnd in windows:
-        details = get_window_details(hwnd)
+        try:
+            details = get_window_details(hwnd)
+        except:
+            continue
         if (
             details["exe_path"] not in blacklist_path
             and details["title"] not in blacklist_title
@@ -53,7 +57,7 @@ def get_window_list():
             print(f"Executable Path: {details['exe_path']}")
             print(f"Position: ({details['x']}, {details['y']})")
             print(f"Size: {details['width']}x{details['height']}\n")
-            windows.append(
+            res.append(
                 [
                     details["exe_path"],
                     details["x"],
@@ -62,4 +66,4 @@ def get_window_list():
                     details["height"],
                 ]
             )
-    return windows
+    return res
