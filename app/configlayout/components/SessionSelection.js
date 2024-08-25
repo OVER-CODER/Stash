@@ -95,6 +95,7 @@ export default function SessionSelection() {
         </Table.Thead>
         <Table.Tbody>{rows}</Table.Tbody>
       </Table>
+
     </ScrollArea>
   );
 }
