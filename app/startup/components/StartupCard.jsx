@@ -4,10 +4,10 @@ import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler
 import classes from './start.module.css';
 
 const mockdata = [
-  { label: '4 passengers', icon: IconUsers },
-  { label: '100 km/h in 4 seconds', icon: IconGauge },
-  { label: 'Automatic gearbox', icon: IconManualGearbox },
-  { label: 'Electric', icon: IconGasStation },
+  { label: 'Visual Studie Code ', icon: IconUsers },
+  { label: 'Terminal', icon: IconGauge },
+  { label: 'Google Chrome', icon: IconManualGearbox },
+  { label: 'Docker', icon: IconGasStation },
 ];
 
 export function StartupCard() {
@@ -19,6 +19,8 @@ export function StartupCard() {
   ));
 
   return (
+    <>
+     
     <Card withBorder radius="md" className={classes.card}>
       <Card.Section className={classes.imageSection}>
         <Image src="https://i.imgur.com/ZL52Q2D.png" alt="Tesla Model S" />
@@ -26,17 +28,17 @@ export function StartupCard() {
 
       <Group justify="space-between" mt="md">
         <div>
-          <Text fw={500}>Tesla Model S</Text>
+          <Text fw={500}>Coding Sess</Text>
           <Text fz="xs" c="dimmed">
-            Free recharge at any station
+           Coding horri hai takdi
           </Text>
         </div>
-        <Badge variant="outline">25% off</Badge>
+        <Badge variant="outline">Heavy Coding</Badge>
       </Group>
 
       <Card.Section className={classes.section} mt="md">
         <Text fz="sm" c="dimmed" className={classes.label}>
-          Basic configuration
+          Apps in the session 
         </Text>
 
         <Group gap={8} mb={-8}>
@@ -46,20 +48,14 @@ export function StartupCard() {
 
       <Card.Section className={classes.section}>
         <Group gap={30}>
-          <div>
-            <Text fz="xl" fw={700} style={{ lineHeight: 1 }}>
-              $168.00
-            </Text>
-            <Text fz="sm" c="dimmed" fw={500} style={{ lineHeight: 1 }} mt={3}>
-              per day
-            </Text>
-          </div>
+          
 
           <Button radius="xl" style={{ flex: 1 }}>
-            Rent now
+           Select
           </Button>
         </Group>
       </Card.Section>
-    </Card>
+    </Card></>
+   
   );
 }
