@@ -57,9 +57,16 @@
     padding-left: calc(var(--mantine-spacing-md) - rem(6px));
     padding-right: calc(var(--mantine-spacing-md) - rem(6px));
     padding-bottom: var(--mantine-spacing-md);
-    
+    max-height: 200px; 
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+
   }
-  
+  .collections::-webkit-scrollbar {
+    display: none; 
+  }
+
   .collectionsHeader {
     padding-left: calc(var(--mantine-spacing-md) + rem(2px));
     padding-right: var(--mantine-spacing-md);
@@ -67,6 +74,7 @@
   }
   
   .collectionLink {
+
     display: block;
     padding: rem(8px) var(--mantine-spacing-xs);
     text-decoration: none;
@@ -75,7 +83,9 @@
     color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
     line-height: 1;
     font-weight: 500;
-  
+    
+    
+ 
     &:hover {
       background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
       color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));

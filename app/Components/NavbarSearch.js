@@ -32,6 +32,14 @@ import { useState } from 'react';
     { emoji: '💸', label: 'Discounts' },
     { emoji: '🙈', label: 'Debts' },
     { emoji: '💁‍♀️', label: 'Customers' },
+    { emoji: '💁‍♀️', label: 'Customers' },
+    { emoji: '💁‍♀️', label: 'Customers' },
+    { emoji: '💁‍♀️', label: 'Customers' },
+    
+   
+    
+   
+    
   ];
   
   export  function NavbarSearch() {
