@@ -103,7 +103,7 @@ export function Roles() {
         <Checkbox
       flex={1} 
       classNames={classes}
-      label="Select Session"
+      label= {checked ? 'Enabled' : 'Disabled'}
       checked={checked}
       onChange={(event) => setChecked(event.currentTarget.checked)}
       wrapperProps={{
