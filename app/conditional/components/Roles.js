@@ -13,7 +13,8 @@ const data = [
     role: 'Collaborator',
     lastActive: '2 days ago',
     active: true,
-    id: 1,  },
+    id: 1,
+  },
   {
     avatar:
       'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-6.png',
@@ -63,12 +64,31 @@ const data = [
 const rolesData = ['Window 1', 'Window 2', 'Window 3', 'Window 4'];
 
 export function Roles() {
-  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedState, setCheckedState] = useState(
+    data.reduce((acc, item) => {
+      acc[item.id] = false;
+      return acc;
+    }, {})
+  );
 
-  const handleChange = (itemId) => {
-    setCheckedItems((prevCheckedItems) => ({
-      ...prevCheckedItems,
-      [itemId]: !prevCheckedItems[itemId],
+  const [selectedWindows, setSelectedWindows] = useState(
+    data.reduce((acc, item) => {
+      acc[item.id] = rolesData[0]; // Default to first window
+      return acc;
+    }, {})
+  );
+
+  const handleClick = (id) => {
+    setCheckedState((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
+
+  const handleSelectChange = (id, value) => {
+    setSelectedWindows((prevState) => ({
+      ...prevState,
+      [id]: value,
     }));
   };
 
@@ -90,14 +110,17 @@ export function Roles() {
       <Table.Td>{item.job}</Table.Td>
       <Table.Td>{item.lastActive}</Table.Td>
       <Table.Td>{rolesData}</Table.Td>
+       
+     
       <Table.Td>
         <Group justify="center">
           <Checkbox
-            flex={1}
+            key={item.id}
+            id={item.id}
             classNames={classes}
-            label={checkedItems[item.id] ? 'Enabled' : 'Disabled'}
-            checked={!!checkedItems[item.id]}
-            onChange={() => handleChange(item.id)}
+            label="Checkbox button"
+            checked={!!checkedState[item.id]}
+            wrapperProps={{ onClick: () => handleClick(item.id) }}
           />
           <Button variant="filled" radius="md" flex={1}>Edit</Button>
         </Group>
@@ -106,19 +129,21 @@ export function Roles() {
   ));
 
   return (
-    <Table.ScrollContainer minWidth={800}>
-      <Table verticalSpacing="sm">
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>Session Name</Table.Th>
-            <Table.Th>Open Window</Table.Th>
-            <Table.Th>Last active</Table.Th>
-            <Table.Th>Windows Selected</Table.Th>
-            <Table.Th>Status</Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
-    </Table.ScrollContainer>
+    <>
+      <Table.ScrollContainer minWidth={800}>
+        <Table verticalSpacing="sm">
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Session Name</Table.Th>
+              <Table.Th>Open Window</Table.Th>
+              <Table.Th>Last active</Table.Th>
+              <Table.Th>Windows Selected</Table.Th>
+              <Table.Th>Status</Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>{rows}</Table.Tbody>
+        </Table>
+      </Table.ScrollContainer>
+    </>
   );
 }
