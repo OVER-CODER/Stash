@@ -1,12 +1,12 @@
 {
-  "name": "ai-knowledgebase-backend",
+  "name": "stash",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev-reqs": "pip3 install -r requirements.txt",
     "dev": "next dev",
     "build:python": "pyinstaller -c -F --clean --name main-x86_64-pc-windows-msvc --distpath src-tauri/bin/api src/backends/main.py",
-    "build": "npm run build:fastapi && next build",
+    "build": "npm run build:python && next build",
     "tauri": "tauri",
     "export": "next export",
     "start": "next start",

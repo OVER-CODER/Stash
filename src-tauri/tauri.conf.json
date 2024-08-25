@@ -7,7 +7,7 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "ai-knowledgebase-backend",
+    "productName": "Stash.",
     "version": "0.1.0"
   },
   "tauri": {
@@ -75,7 +75,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "ai-knowledgebase-backend",
+        "title": "Stash.",
         "width": 800
       }
     ]
