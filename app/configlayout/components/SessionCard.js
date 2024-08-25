@@ -3,6 +3,7 @@ import { Card, Avatar, Text, Group, Button , Badge, Center , Modal} from '@manti
 import { useDisclosure } from '@mantine/hooks';
 import classes from './SessionCard.module.css';
 import SessionSelection from './SessionSelection';
+import InputWithButton from './InputWithButton';
 
 
 const stats = [
@@ -30,7 +31,12 @@ export function SessionCard() {
         <Modal.Overlay />
         <Modal.Content>
           <Modal.Header>
-            <Modal.Title>Create Session</Modal.Title>
+          <Modal.Title>
+          <Group position="center" style={{ display: 'flex', flex:'justify-center' }}>
+            Create Session 
+            <InputWithButton mt={8} />
+        </Group>
+            </Modal.Title>
             <Modal.CloseButton />
           </Modal.Header>
           <Modal.Body bg={"#080819"}>{<SessionSelection/>}</Modal.Body>
@@ -54,7 +60,7 @@ export function SessionCard() {
       /> */}
       <Group justify="center" mt="md">
        <Badge size="lg" p={5} px={8} ta={Center} justify={Center} variant="light">
-         Session Name   
+         Session Name  
         </Badge>
       </Group>
       {/* <Text ta="center" fz="sm" c="dimmed">

@@ -21,7 +21,7 @@ import { useState } from "react";
 const data = [
   {
     id: 1,
-    title: "Coding Session",
+    title: "Codinnkk Session",
     tag: "Heavy Coding",
     desc: "Coding horri hai takdi",
     apps: [
@@ -86,27 +86,13 @@ const data = [
   },
 ];
 
-const mockdata = [
-  { label: "Visual Studie Code", icon: IconUsers },
-  { label: "Terminal", icon: IconGauge },
-  { label: "Google Chrome", icon: IconManualGearbox },
-  { label: "Docker", icon: IconGasStation },
-];
-
 export function StartupCard() {
   const [titler, setTitler] = useState(null);
 
-  function handleClick(titl) {
-    setTitler(titl);
-    console.log(titl);
+  function handleClick(ide) {
+    setTitler(ide);
+    console.log(ide);
   }
-
-  const features = mockdata.map((feature) => (
-    <Center key={feature.label}>
-      <feature.icon size="1.05rem" className={classes.icon} stroke={1.5} />
-      <Text size="xs">{feature.label}</Text>
-    </Center>
-  ));
 
   return (
     <div>
@@ -120,23 +106,33 @@ export function StartupCard() {
           ));
 
           return (
-            <Grid.Col key={item.id} span={4}>
-              <Card withBorder radius="md" className={classes.card}>
+            <Grid.Col
+              key={item.id}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              span={4}
+            >
+              <Card withBorder radius="md" className={classes.card} 
+              style={{
+                  borderColor: titler === item.id ? 'dodgerblue' : '',
+                  borderWidth: titler === item.id ? '3px' : '',
+                }} >
+              
                 <Card.Section className={classes.imageSection}>
                   <Image src={item.icon} alt="collection-img" />
                 </Card.Section>
 
                 <Group justify="center" mt="md">
-                  <div style={{ width:'100%' ,display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
+                  <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <div>
-                    <Text fw={500}>{item.title}</Text>
-                    <Text fz="xs" c="dimmed">
-                      {item.desc}
-                    </Text>
+                      <Text fw={500}>{item.title}</Text>
+                      <Text fz="xs" c="dimmed">
+                        {item.desc}
+                      </Text>
                     </div>
-                   
-                 
-                  <Badge variant="outline">{item.tag}</Badge>
+                    <Badge variant="outline">{item.tag}</Badge>
                   </div>
                 </Group>
 
@@ -151,7 +147,7 @@ export function StartupCard() {
                 <Card.Section className={classes.section}>
                   <Group gap={30}>
                     <Button
-                      onClick={() => handleClick(item.title)}
+                      onClick={() => handleClick(item.id)}
                       radius="xl"
                       style={{ flex: 1 }}
                     >
