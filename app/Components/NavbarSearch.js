@@ -99,13 +99,13 @@ import { useState } from 'react';
           <div className={classes.collections}>{collectionLinks}</div>
         </div>
 
-       
+        <div className={classes.themer}>
+      <Dark/>
+      </div>
         
         
       </nav>
-      <div className={classes.themer}>
-      <Dark/>
-      </div>
+     
     
       
     
