@@ -27,12 +27,14 @@ def start_and_position_window(exe, pos):
                 hwnd = i[0]
                 break
 
-        pos = [int(i) for i in pos.split(" ")]
-
-        win32gui.MoveWindow(hwnd, pos[0], pos[1], pos[2], pos[3], True)
+        # pos = [int(i) for i in pos.split(" ")]
+        try:
+            win32gui.MoveWindow(hwnd, pos[0], pos[1], pos[2], pos[3], True)
+        except:
+            pass
 
 
 def restore_windows_to_original_state(windows):
-
+    print(windows)
     for exe, pos in windows:
         start_and_position_window(exe, pos)

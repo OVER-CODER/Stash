@@ -60,10 +60,10 @@ def get_window_list():
             res.append(
                 [
                     details["exe_path"],
-                    details["x"],
+                    [details["x"],
                     details["y"],
                     details["width"],
-                    details["height"],
+                    details["height"]]
                 ]
             )
     return res

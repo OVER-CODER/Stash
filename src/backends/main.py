@@ -55,7 +55,7 @@ def dumpscreen(name, lastActive):
 @app.route("/restore/<name>")
 def restorewindows(name):
     data = read_config(name)
-    # print(data["details"])
+    print(data["details"])
     restore_windows_to_original_state(data["details"])
     return "Restored"
 
