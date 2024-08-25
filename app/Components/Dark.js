@@ -3,7 +3,7 @@ import { IconSun, IconMoon } from '@tabler/icons-react';
 import cx from 'clsx';
 import classes from './Dark.module.css';
 
-function Dark() {
+export function Dark() {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
 
