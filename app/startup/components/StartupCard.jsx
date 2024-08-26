@@ -30,7 +30,7 @@ const data = [
       { label: "Google Chrome", icon: IconManualGearbox },
       { label: "Docker", icon: IconGasStation },
     ],
-    icon: "startup-img/hello.png",
+    icon: "startup-img/hello1.png",
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const data = [
       { label: "Google Chrome", icon: IconManualGearbox },
       { label: "Docker", icon: IconGasStation },
     ],
-    icon: "startup-img/hello3.png",
+    icon: "startup-img/hello1.png",
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const data = [
       { label: "Google Chrome", icon: IconManualGearbox },
       { label: "Docker", icon: IconGasStation },
     ],
-    icon: "startup-img/hello.png",
+    icon: "startup-img/hello1.png",
   },
   {
     id: 5,
@@ -82,7 +82,7 @@ const data = [
       { label: "Google Chrome", icon: IconManualGearbox },
       { label: "Docker", icon: IconGasStation },
     ],
-    icon: "startup-img/hello3.png",
+    icon: "startup-img/hello1.png",
   },
 ];
 
@@ -121,7 +121,7 @@ export function StartupCard() {
                 }} >
               
                 <Card.Section className={classes.imageSection}>
-                  <Image src={item.icon} alt="collection-img" />
+                  <Image src={item.icon} alt="collection-img"  />
                 </Card.Section>
 
                 <Group justify="center" mt="md">
