@@ -1,0 +1,78 @@
+{
+    "name": "[object Object]",
+    "lastActive": "1724633291142",
+    "details": [
+        [
+            "D:\\WebDev\\yeswecan\\yeswecan\\src-tauri\\target\\debug\\Stash.exe",
+            [
+                -7,
+                -7,
+                1550,
+                830
+            ]
+        ],
+        [
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            [
+                51,
+                51,
+                895,
+                518
+            ]
+        ],
+        [
+            "C:\\Users\\ARYAN TAK\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+            [
+                -7,
+                -7,
+                1550,
+                830
+            ]
+        ],
+        [
+            "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.20.11781.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe",
+            [
+                18,
+                26,
+                1199,
+                616
+            ]
+        ],
+        [
+            "C:\\Program Files\\Firefox Developer Edition\\firefox.exe",
+            [
+                -7,
+                -7,
+                1550,
+                830
+            ]
+        ],
+        [
+            "C:\\Windows\\explorer.exe",
+            [
+                -7,
+                -7,
+                1550,
+                830
+            ]
+        ],
+        [
+            "C:\\Windows\\explorer.exe",
+            [
+                -7,
+                -7,
+                1550,
+                830
+            ]
+        ],
+        [
+            "C:\\Program Files\\WindowsApps\\RealtekSemiconductorCorp.RealtekAudioControl_1.44.302.0_x64__dt26b99r8h8gj\\RtkUWP.exe",
+            [
+                0,
+                33,
+                1024,
+                768
+            ]
+        ]
+    ]
+}

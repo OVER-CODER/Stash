@@ -1,6 +1,7 @@
 import { IconHeart } from '@tabler/icons-react';
 import { Card, Image, Text, Group, Badge, Button, ActionIcon } from '@mantine/core';
 import classes from './SessionCard.module.css';
+import { restoreLayout } from '../utils/api';
 
 const mockdata = {
   image:
