@@ -22,9 +22,8 @@ const mockdata = {
 
 
 
-export function SessionCard({title }) {
+export function SessionCard({title,loading,setLoading }) {
   const { time_ago ,image, description, badges } = mockdata;
-  const [loading, setLoading] = useState(false);
   const features = badges.map((badge) => (
     <Badge variant="light" key={badge.label} leftSection={badge.emoji}>
       {badge.label}
@@ -68,7 +67,7 @@ export function SessionCard({title }) {
       </Card.Section>
 
       <Group mt="xs">
-        <Button radius="md" onClick={restore} variant='light' style={{ flex: 1 }}>
+        <Button radius="md" loading={loading} onClick={restore} variant='light' style={{ flex: 1 }}>
           Restore Session
         </Button>
         <ActionIcon bg={"transparent"} radius="md" size={36}>
