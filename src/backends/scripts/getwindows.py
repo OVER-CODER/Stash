@@ -7,7 +7,6 @@ def enum_windows_callback(hwnd, results):
     if win32gui.IsWindowVisible(hwnd) and win32gui.GetWindowText(hwnd):
         results.append(hwnd)
 
-
 def get_window_details(hwnd):
 
     title = win32gui.GetWindowText(hwnd)

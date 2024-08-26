@@ -12,13 +12,17 @@ def enum_windows_callback(hwnd, results):
 
 def start_and_position_window(exe, pos):
     if exe:
-        proc = subprocess.Popen(exe)
+        try:
+            proc = subprocess.Popen(exe,shell=True)
+        except:
+            return
         pid = proc.pid
         print(pid)
-        time.sleep(1)
+        time.sleep(2)
         print("idhar agaya")
         wins = []
         win32gui.EnumWindows(enum_windows_callback, wins)
+        print("=======================================================================")
         print(wins)
         hwnd = None
         for i in wins:
@@ -28,6 +32,7 @@ def start_and_position_window(exe, pos):
                 break
 
         # pos = [int(i) for i in pos.split(" ")]
+        
         try:
             win32gui.MoveWindow(hwnd, pos[0], pos[1], pos[2], pos[3], True)
         except:

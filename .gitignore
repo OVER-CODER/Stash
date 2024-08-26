@@ -2,6 +2,7 @@
 
 #dump kyu hi loge tum
 *.sex
+*.png
 
 # dependencies
 /node_modules
