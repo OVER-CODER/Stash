@@ -19,4 +19,10 @@ export async function getLayouts() {
     return data;
 }
 
+export async function getimg(name){
+    const res = await fetch("http://localhost:6969/screenshot/" + name);
+    const data = await res.text();
+    console.log(data);
+    return data;
+}
 // dumpLayout("test");

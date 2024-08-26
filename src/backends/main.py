@@ -41,10 +41,10 @@ def screenshot():
 
 @app.route("/screenshot/<name>")
 def screenshot_name(name):
-    with open(name, "rb") as image_file:
+    with open(name+".png", "rb") as image_file:
      base64_image = base64.b64encode(image_file.read()).decode("utf-8")
     
-    return {base64_image}
+    return base64_image
 
 
 @app.route("/getwindows")

@@ -1,7 +1,7 @@
 import { IconHeart } from '@tabler/icons-react';
 import { Card, Image, Text, Group, Badge, Button, ActionIcon } from '@mantine/core';
 import classes from './SessionCard.module.css';
-import { restoreLayout } from '../utils/api';
+import { getimg, restoreLayout } from '../utils/api';
 import { useState } from 'react';
 
 const mockdata = {
@@ -37,10 +37,19 @@ export function SessionCard({title,loading,setLoading }) {
     setLoading(false);
   }
 
+  const [img, setImg] = useState(image);
+  
+  async function imgurl(name){
+    const res = await getimg(name);
+    setImg(res);
+  }
+
+  imgurl(title.split(".")[0])
+
   return (
     <Card withBorder radius="md" p="md" mb={20} miw={300} className={classes.card} flex={1}>
       <Card.Section>
-        <Image src={image} alt={title} height={180} />
+        <Image src={"data:image/png;base64,"+img} alt={title} height={180} />
       </Card.Section>
 
       <Card.Section className={classes.section} mt="md">
