@@ -7,6 +7,7 @@ import io
 from scripts.getwindows import get_window_list
 from scripts.restorewin import restore_windows_to_original_state
 from scripts.dumpconfig import dump_config, read_config
+import glob
 
 
 app = flask.Flask(__name__)
@@ -43,6 +44,12 @@ def getwindows():
     x = get_window_list()
     print(x)
     return x
+
+
+@app.route("/getlayouts")
+def get_layouts():
+    file_names = glob.glob("*.sex")
+    return file_names
 
 
 @app.route("/dumplayout/<name>/<lastActive>")

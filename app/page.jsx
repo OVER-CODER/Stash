@@ -16,10 +16,28 @@ export default function Home() {
   getUser();
 
   const [opened, { open, close }] = useDisclosure(false);
+  const [config, setConfig] = useState("");
+  const [loading,setLoading] = useState(false);
+  const [sessions, setSessions] = useState([]);
+  
+  async function dump() {
+    setLoading(true);
+    const res = await dumpLayout(config);
+    console.log(res);
+    setLoading(false);
+    close();
+  }
+
+  async function getSessions() {
+    const res = await getLayouts();
+    setSessions(res);
+  }
+
   return (
     <>
     <Modal opened={opened} onClose={close} title="Creat New Config" mb={8} bg={"#080819"}>
-        <TextInput label="Config Name" placeholder="Type New Config Name" mt={10}/>
+        <TextInput onChange={(e) => setConfig(e)} label="Config Name" placeholder="Type New Config Name" mt={10}/>
+        <Button variant="light" onClick={dump}>Submit</Button>
       </Modal>
     <Group style={{display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
       <Group gap={0} align="baseline">
@@ -35,10 +53,9 @@ export default function Home() {
       <Text fz={24} fw={600}>Recent Sessions</Text>
     </Group>
     <Group w={"100%"} wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} } mb={20}>
-      <SessionCard />
-      <SessionCard />
-      <SessionCard />
-      <SessionCard />      
+      {
+        sessions.map((session) => () => <SessionCard title={session} time_ago={session} />)
+      }    
     </Group>
     <ActionRing />
     </>
