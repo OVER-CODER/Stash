@@ -1,7 +1,8 @@
 "use client";
-import { Group, Stack, Text , Button } from "@mantine/core";
+import { Group, Stack, Text , Button , Modal , TextInput } from "@mantine/core";
 // import { MantineLogo } from '@mantinex/mantine-logo';
 import { useState } from "react";
+import { useDisclosure } from '@mantine/hooks';
 import { SessionCard } from "./Components/SessionCard";
 import { ActionRing } from "./Components/ActionRing";
 
@@ -14,8 +15,12 @@ export default function Home() {
 
   getUser();
 
+  const [opened, { open, close }] = useDisclosure(false);
   return (
-    <> 
+    <>
+    <Modal opened={opened} onClose={close} title="Creat New Config" mb={8} bg={"#080819"}>
+        <TextInput label="Config Name" placeholder="Type New Config Name" mt={10}/>
+      </Modal>
     <Group style={{display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
       <Group gap={0} align="baseline">
         <Text fz={28} fw={600}>Good Evening</Text>
@@ -23,7 +28,7 @@ export default function Home() {
         <Text w={"100%"} fz={16} fw={400} style={{translate:"0px -5px"}} c={"dimmed"}>Ready to be productive?</Text>
       </Group>
       <Group>
-        <Button radius="md" mt="xl" size="lg"  mb="xl" variant='light'  mr={5}>Save Config</Button>
+        <Button radius="md" mt="xl" size="lg"  mb="xl" variant='light' onClick={open}  mr={5} >Create Config</Button>
       </Group>
     </Group>
     <Group gap={0} align="baseline" my={"md"}>
