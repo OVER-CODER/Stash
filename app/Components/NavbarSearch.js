@@ -94,7 +94,7 @@ export function NavbarSearch() {
       <span style={{ marginRight: rem(9), fontSize: rem(16) }}>
         {getRandomEmoji()}
       </span>{" "}
-      {collection.label}
+      {collection}
     </a>
   ));
 
