@@ -42,7 +42,7 @@ export default function Home() {
     <>
     
     <Modal opened={opened} onClose={close} title="Creat New Config" mb={12} >
-      <Card shadow="sm" padding="lg" radius="md" withBorder bg={'#080819'} ><TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mb={10} mt={10} p={4} />
+      <Card shadow="sm" padding="lg" radius="md" withBorder bg={'#080819'} ><TextInput onChange={(e) => setConfig(e.target.value)} label={<Text fw={600} fz={22} pb={12}>Enter Config Name</Text>} placeholder="Type New Config Name" mb={10} mt={10} p={4} />
       <Button  loading={loading} variant="light" mt={4} onClick={dump}>Submit</Button></Card>
     </Modal>
     
