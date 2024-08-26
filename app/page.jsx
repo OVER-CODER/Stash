@@ -40,12 +40,12 @@ export default function Home() {
 
   return (
     <>
-    <Group>
-    <Modal opened={opened} onClose={close} title="Create New Config"  mb={12} >
-        <Card shadow="sm" padding="lg" radius="md" withBorder bg={'#080819'} ><TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mb={10} mt={10} p={4} />
-        <Button variant="light" mt={4} onClick={dump}>Submit</Button></Card>
-      </Modal>
-    </Group>
+    
+    <Modal opened={opened} onClose={close} title="Creat New Config" mb={12} >
+      <Card shadow="sm" padding="lg" radius="md" withBorder bg={'#080819'} ><TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mb={10} mt={10} p={4} />
+      <Button  loading={loading} variant="light" mt={4} onClick={dump}>Submit</Button></Card>
+    </Modal>
+    
     
     <Group style={{display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
       <Group gap={0} align="baseline">
@@ -54,7 +54,7 @@ export default function Home() {
         <Text w={"100%"} fz={16} fw={400} style={{translate:"0px -5px"}} c={"dimmed"}>Ready to be productive?</Text>
       </Group>
       <Group>
-        <Button radius="md" mt="xl" size="lg"  mb="xl" variant='light' onClick={open}  mr={5} >Create Config</Button>
+        <Button loading={loading} radius="md" mt="xl" size="lg"  mb="xl" variant='light' onClick={open}  mr={5} >Create Config</Button>
       </Group>
     </Group>
     <Group gap={0} align="baseline" my={"md"}>
@@ -62,7 +62,7 @@ export default function Home() {
     </Group>
     <Group w={"100%"} wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} } mb={20}>
       {
-          sessions.map((session) => ( <SessionCard key={session} title={session} time_ago={session}  />))
+          sessions.map((session) => ( <SessionCard loading={loading} setLoading={setLoading} key={session} title={session} time_ago={session}  />))
         }    
     </Group>
     <ActionRing />
