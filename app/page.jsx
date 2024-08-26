@@ -40,10 +40,13 @@ export default function Home() {
 
   return (
     <>
-    <Modal opened={opened} onClose={close} title="Creat New Config" mb={8} bg={"#080819"}>
-        <TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mt={10}/>
-        <Button variant="light" onClick={dump}>Submit</Button>
+    <Group style={{ backgroundColor: 'orange' , height:'100%', width:'100%'}}>
+    <Modal opened={opened} onClose={close} title="Creat New Config" mb={12} >
+        <TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mb={10} mt={10} p={4}/>
+        <Button variant="light" mt={4} onClick={dump}>Submit</Button>
       </Modal>
+    </Group>
+    
     <Group style={{display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
       <Group gap={0} align="baseline">
         <Text fz={28} fw={600}>Good Evening</Text>

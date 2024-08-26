@@ -29,7 +29,7 @@ export function SessionCard() {
     <>
     <Modal.Root opened={opened} onClose={close} size={'2xl'} style={{overflow : 'hidden'}}>
         <Modal.Overlay />
-        <Modal.Content>
+        <Modal.Content bg={"#080819"}>
           <Modal.Header>
           <Modal.Title>
           <Group position="center" style={{ display: 'flex', flex:'justify-center' }}>
@@ -39,7 +39,7 @@ export function SessionCard() {
             </Modal.Title>
             <Modal.CloseButton />
           </Modal.Header>
-          <Modal.Body bg={"#080819"}>
+          <Modal.Body >
             {<SessionSelection wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} }/>}
             <Button radius="md" mt="xl" size="mg" variant='light' onClick={close}>Save Config</Button>
             </Modal.Body>
