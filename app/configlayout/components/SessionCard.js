@@ -1,5 +1,5 @@
 'use client'
-import { Card, Avatar, Text, Group, Button , Badge, Center , Modal} from '@mantine/core';
+import { Card, Avatar, Text, Group, Button , Badge, Center , Modal , TextInput} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './SessionCard.module.css';
 import SessionSelection from './SessionSelection';
@@ -32,9 +32,13 @@ export function SessionCard() {
         <Modal.Content bg={"#080819"}>
           <Modal.Header>
           <Modal.Title>
-          <Group position="center" style={{ display: 'flex', flex:'justify-center' }}>
-            Create Session 
+          <Group position="center" style={{ display: 'flex', flex:'row'}}>
+            <Group style={{ display: 'flex', flex:'justify-center' }}>Create Session 
             <InputWithButton mt={8} />
+            </Group> 
+            <Group style={{ display: 'flex' }} >
+            <TextInput variant="filled" radius="md" label={<Text fw={600} fz={14} pb={12}>Enter Config Name</Text>} placeholder="Input placeholder"/>
+            </Group>
         </Group>
             </Modal.Title>
             <Modal.CloseButton />
