@@ -1,5 +1,5 @@
 "use client";
-import { Group, Stack, Text , Button , Modal , TextInput } from "@mantine/core";
+import { Group, Stack, Text , Button , Modal , TextInput , Card } from "@mantine/core";
 // import { MantineLogo } from '@mantinex/mantine-logo';
 import { useEffect, useState } from "react";
 import { useDisclosure } from '@mantine/hooks';
@@ -40,10 +40,10 @@ export default function Home() {
 
   return (
     <>
-    <Group style={{ backgroundColor: 'orange' , height:'100%', width:'100%'}}>
-    <Modal opened={opened} onClose={close} title="Creat New Config" mb={12} >
-        <TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mb={10} mt={10} p={4}/>
-        <Button variant="light" mt={4} onClick={dump}>Submit</Button>
+    <Group>
+    <Modal opened={opened} onClose={close} title="Create New Config"  mb={12} >
+        <Card shadow="sm" padding="lg" radius="md" withBorder bg={'#080819'} ><TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mb={10} mt={10} p={4} />
+        <Button variant="light" mt={4} onClick={dump}>Submit</Button></Card>
       </Modal>
     </Group>
     
