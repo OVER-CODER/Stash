@@ -1,5 +1,5 @@
 "use client";
-import { Group, Stack, Text , Button , Modal , TextInput , Card } from "@mantine/core";
+import { Group, Stack, Text , Button , Modal , TextInput , Card, Checkbox } from "@mantine/core";
 // import { MantineLogo } from '@mantinex/mantine-logo';
 import { useEffect, useState } from "react";
 import { useDisclosure } from '@mantine/hooks';
@@ -17,10 +17,11 @@ export default function Home() {
   const [config, setConfig] = useState("");
   const [loading,setLoading] = useState(false);
   const [sessions, setSessions] = useState([]);
+  const [tokill, setTokill] = useState(false);
   
   async function dump() {
     setLoading(true);
-    const res = await dumpLayout(config);
+    const res = await dumpLayout(config,tokill);
     console.log(res);
     setLoading(false);
     close();
@@ -43,9 +44,9 @@ export default function Home() {
     
     <Modal opened={opened} onClose={close} title="Creat New Config" mb={12} >
       <Card shadow="sm" padding="lg" radius="md" withBorder bg={'#080819'} ><TextInput onChange={(e) => setConfig(e.target.value)} label={<Text fw={600} fz={22} pb={12}>Enter Config Name</Text>} placeholder="Type New Config Name" mb={10} mt={10} p={4} />
+      <Checkbox onClick={setTokill(!tokill)} checked={tokill} > Do You want to kill the windows?</Checkbox>
       <Button  loading={loading} variant="light" mt={4} onClick={dump}>Submit</Button></Card>
     </Modal>
-    
     
     <Group style={{display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
       <Group gap={0} align="baseline">
@@ -63,7 +64,7 @@ export default function Home() {
     <Group w={"100%"} wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} } mb={20}>
       {
           sessions.map((session) => ( <SessionCard loading={loading} setLoading={setLoading} key={session} title={session} time_ago={session}  />))
-        }    
+      }    
     </Group>
     <ActionRing />
     </>

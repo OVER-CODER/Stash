@@ -7,6 +7,7 @@ def enum_windows_callback(hwnd, results):
     if win32gui.IsWindowVisible(hwnd) and win32gui.GetWindowText(hwnd):
         results.append(hwnd)
 
+
 def get_window_details(hwnd):
 
     title = win32gui.GetWindowText(hwnd)
@@ -28,6 +29,7 @@ def get_window_details(hwnd):
         "y": y,
         "width": width,
         "height": height,
+        "pid": pid,
     }
 
 
@@ -39,7 +41,7 @@ blacklist_path = [
 blacklist_title = ["Program Manager"]
 
 
-def get_window_list():
+def get_window_list(sw=False):
     windows = []
     win32gui.EnumWindows(enum_windows_callback, windows)
     res = []
@@ -59,10 +61,18 @@ def get_window_list():
             res.append(
                 [
                     details["exe_path"],
-                    [details["x"],
-                    details["y"],
-                    details["width"],
-                    details["height"]]
+                    [details["x"], details["y"], details["width"], details["height"]],
                 ]
             )
+            if sw:
+                kill_Open(pid=details["pid"])
     return res
+
+
+def kill_Open(pid):
+    try:
+        proc = psutil.Process(pid=pid)
+        proc.terminate()
+    except:
+        pass
+    return

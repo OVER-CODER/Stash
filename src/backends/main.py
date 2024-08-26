@@ -60,12 +60,12 @@ def get_layouts():
     return file_names
 
 
-@app.route("/dumplayout/<name>/<lastActive>")
-def dumpscreen(name, lastActive):
+@app.route("/dumplayout/<name>/<lastActive>/<toKill>")
+def dumpscreen(name, lastActive, toKill):
     screenshot = capture_screenshot()
     img_io = io.BytesIO()
     screenshot.save(f"{name}.png", "PNG")
-    data = get_window_list()
+    data = get_window_list(True if toKill > 0 else False)
     dump_config(data, name, lastActive)
     return "Dumped"
 

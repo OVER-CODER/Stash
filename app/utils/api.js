@@ -1,5 +1,5 @@
-export async function dumpLayout(name) {
-    const res = await fetch("http://localhost:6969/dumplayout/" + name + "/" + Date.now());
+export async function dumpLayout(name,toKill) {
+    const res = await fetch("http://localhost:6969/dumplayout/" + name + "/" + Date.now()+"/"+toKill);
     const data = await res.text();
     console.log(data);
     return data;
