@@ -1,7 +1,7 @@
 "use client";
 import { Group, Stack, Text , Button , Modal , TextInput } from "@mantine/core";
 // import { MantineLogo } from '@mantinex/mantine-logo';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDisclosure } from '@mantine/hooks';
 import { SessionCard } from "./Components/SessionCard";
 import { ActionRing } from "./Components/ActionRing";
@@ -13,9 +13,6 @@ export default function Home() {
     const res = await fetch("http://localhost:6969/user");
     setUser(await res.text());
   }
-
-  getUser();
-
   const [opened, { open, close }] = useDisclosure(false);
   const [config, setConfig] = useState("");
   const [loading,setLoading] = useState(false);
@@ -27,6 +24,7 @@ export default function Home() {
     console.log(res);
     setLoading(false);
     close();
+    getSessions();
   }
 
   async function getSessions() {
@@ -34,10 +32,16 @@ export default function Home() {
     setSessions(res);
   }
 
+  useEffect(() => {
+    getUser();
+    getSessions();
+  }, []);
+
+
   return (
     <>
     <Modal opened={opened} onClose={close} title="Creat New Config" mb={8} bg={"#080819"}>
-        <TextInput onChange={(e) => setConfig(e)} label="Config Name" placeholder="Type New Config Name" mt={10}/>
+        <TextInput onChange={(e) => setConfig(e.target.value)} label="Config Name" placeholder="Type New Config Name" mt={10}/>
         <Button variant="light" onClick={dump}>Submit</Button>
       </Modal>
     <Group style={{display:'flex' , justifyContent:'space-between' , alignItems:'center'}}>
@@ -55,8 +59,8 @@ export default function Home() {
     </Group>
     <Group w={"100%"} wrap="nowrap" style={{overflow:"scroll", scrollbarWidth:"none"} } mb={20}>
       {
-        sessions.map((session) => () => <SessionCard title={session} time_ago={session} />)
-      }    
+          sessions.map((session) => ( <SessionCard key={session} title={session} time_ago={session}  />))
+        }    
     </Group>
     <ActionRing />
     </>
