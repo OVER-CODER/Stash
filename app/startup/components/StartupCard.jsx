@@ -151,7 +151,7 @@ export function StartupCard() {
                       radius="xl"
                       style={{ flex: 1 }}
                     >
-                      Select
+                      {titler === item.id ? "Selected" : "Select"}
                     </Button>
                   </Group>
                 </Card.Section>
