@@ -6,7 +6,7 @@ export async function dumpLayout(name) {
 }
 
 export async function restoreLayout(name) {
-    const res = await fetch("http://localhost:6969/restore/" + name );
+    const res = await fetch("http://localhost:6969/restore/" + name.split(".")[0] );
     const data = await res.text();
     console.log(data);
     return data;
