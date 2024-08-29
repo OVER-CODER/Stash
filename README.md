@@ -9,7 +9,10 @@ Session management for windows. 🪄
 Introducing Stash - the ultimate solution for seamless session management of your Windows applications. With Stash, you'll never have to worry about 
 losing your workspace again. Stash saves the exact layout of all your open windows, including their positions and sizes, so you can pick up right where you left off.
 
-<video src="Stash.mp4"></video>
+
+
+https://github.com/user-attachments/assets/147bcba5-d386-48af-b31e-70c7d1caf632
+
 
 When it's time to close an app or restart your computer, simply restore your session with Stash and it will re-open all your applications in the same 
 layout as before.   
