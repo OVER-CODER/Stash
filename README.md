@@ -1,12 +1,15 @@
 # Stash.
 
-> Session management for windows. 🪄
+> Don't think just stash it away.  
 
+Session management for windows. 🪄
 
 "Ugh , Gotta restart my computer open up all these windows and arrange them again" ever felt this way? Well no more ;)
 
 Introducing Stash - the ultimate solution for seamless session management of your Windows applications. With Stash, you'll never have to worry about 
 losing your workspace again. Stash saves the exact layout of all your open windows, including their positions and sizes, so you can pick up right where you left off.
+
+<video src="Stash.mp4"></video>
 
 When it's time to close an app or restart your computer, simply restore your session with Stash and it will re-open all your applications in the same 
 layout as before.   
@@ -22,7 +25,7 @@ Hopefully the following diagram explains it well:
 
 ![Architecture](diag.svg)
 
-We achieve this behaviour by compiling the python app to an exe using pyinstaller then loading it as a sidecar with Tuari.
+We achieve this behaviour by compiling the python app to an exe using pyinstaller then loading it as a sidecar with Tauri and executing it from the rust backend.
 
 > Python is efficient? More like we only know python 🤷‍♂️
 
